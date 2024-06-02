@@ -272,7 +272,9 @@
     </header>
 
     <section class="hero">
-        <h4>HELPING THE FOOD SERVICE COMMUNITY THRIVE</h4>
+      
+
+        <h4 style="margin-top: 100px;">HELPING THE FOOD SERVICE COMMUNITY THRIVE</h4>
         <h1>THE COMPLETE SOLUTION FOR <br/> DIGITAL FOOD ORDERING</h1>
         <p>One platform to manage operations and drive revenue:</p>
         <p>Robust APIs • Direct-to-consumer sales channels • Automation tools • Third-party delivery management</p>
@@ -280,6 +282,13 @@
 
         <button class="cta">Get Started</button>
         <h5>One location? Get free <br/>access for 14 days</h5>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" style="color: red; font-size: 50px;">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
 
         <div class="container">
             <div class="text-boxy">
@@ -295,13 +304,24 @@
     </section>
 
     <section id="features" class="section">
-        
+
         <h1>Sign Up to Our Email Newsletter</h1>
         <form action="/signup" method="post">
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email"><br><br>
             <input type="submit" value="Sign Up">
         </form>
+        <hr>
+        <hr>
+        <h1>Need a job? (Yes, of course you do)</h1>
+        <h2>Upload your resume below and we'll reach out.</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
+        
+        <hr>
+        <hr>
 
         <h2>Features</h2>
         <p>Everything you need to manage your online orders efficiently.</p>
@@ -334,5 +354,6 @@
     <footer>
         <p>&copy; 2024 Deliverect Clone. All rights reserved.</p>
     </footer>
+    
 </body>
 </html>
