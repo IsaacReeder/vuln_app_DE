@@ -55,6 +55,19 @@
             font-weight: bold;
         }
 
+        .navbar-button {
+            padding: .7em 1.3em;
+            background-color: #038851;
+            color: #fff;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 1em;
+            border-radius: 25px;
+            font-family: GT Pressura,Arial,sans-serif;
+            font-weight: 600;
+        }
+
         /* Toppest */
 
         .topest-navbar {
@@ -289,18 +302,117 @@
         }
 
         .login-container button {
-            background-color: #007bff;
+            background-color: #038851;
             color: #fff;
             border: none;
-            border-radius: 3px;
+            border-radius: 25px;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
+            font-weight: 600;
         }
 
         .login-container button:hover {
-            background-color: #0056b3;
+            background-color: #e417c9;
         }
+
+        /* Form styling */
+
+        .signup-form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .submit-button {
+            background-color: #038851;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .submit-button:hover {
+            background-color: #027240;
+        }
+
+        /* Upload form */
+
+        .upload-form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .file-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .submit-button {
+            background-color: #038851;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .submit-button:hover {
+            background-color: #027240;
+        }
+
+
+
+        /* Responsive bits */
+
+        @media (max-width: 768px) {
+            /* Adjustments for tablets and smaller devices */
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .login-container {
+                width: 80%; /* Adjust width for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Adjustments for mobile devices */
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .login-container {
+                width: 90%; /* Adjust width for even smaller screens */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -316,15 +428,20 @@
                 <div class="arrow right-arrow">&gt;</div>
             </div>
         </nav>
+
+        
         <div class="navbar">
             <div class="logo">
                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM0IiBoZWlnaHQ9IjI1IiB2aWV3Qm94PSIwIDAgMTM0IDI1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMjAuODgxNiAzLjcxNzNWMTIuNjU5MkMyMC44ODE2IDE3LjA3NzcgMTcuMzAwMSAyMC42NTkyIDEyLjg4MTYgMjAuNjU5MkM4LjQ2MzA2IDIwLjY1OTIgNC44ODE1OSAxNy4wNzc3IDQuODgxNTkgMTIuNjU5MkM0Ljg4MTU5IDguMjQwNjYgOC40NjMwNiA0LjY1OTE5IDEyLjg4MTYgNC42NTkxOUgxMy43NzA3VjkuOTkyNzlIMTIuODgxNkMxMS40MDkgOS45OTI3OSAxMC4yMTUyIDExLjE4NjYgMTAuMjE1MiAxMi42NTkyQzEwLjIxNTIgMTQuMTMxOCAxMS40MDkgMTUuMzI1NiAxMi44ODE2IDE1LjMyNTZDMTQuMzU0MiAxNS4zMjU2IDE1LjU0OCAxNC4xMzE4IDE1LjU0OCAxMi42NTkyVjAuOTYwNjk0QzE0LjY4OTggMC43NjU2NTIgMTMuNzk4MyAwLjY2MDAwNCAxMi44ODE2IDAuNjYwMDA0QzYuMjU0MiAwLjY2MDAwNCAwLjg4MTU5MiA2LjAzMjYyIDAuODgxNTkyIDEyLjY2QzAuODgxNTkyIDE5LjI4NzQgNi4yNTQyIDI0LjY2IDEyLjg4MTYgMjQuNjZDMTkuNTA5IDI0LjY2IDI0Ljg4MTYgMTkuMjg3NCAyNC44ODE2IDEyLjY2QzI0Ljg4MTYgOS4xMDY5NyAyMy4zMzU5IDUuOTE1NTkgMjAuODgxNiAzLjcxODExVjMuNzE3M1oiIGZpbGw9IiMwNUNDNzkiLz4KPHBhdGggZD0iTTQ5LjgzNzMgMTkuMDk3MkM1MS4zMDAxIDE5LjA5NzIgNTIuMzk4IDE4LjQzOSA1Mi45ODMyIDE3LjU4NTZMNTUuMTUzOCAxOC44NTM0QzU0LjAzMjMgMjAuNTExMyA1Mi4yMDMgMjEuNTExNyA0OS44MTI5IDIxLjUxMTdDNDUuNzg5MyAyMS41MTE3IDQzLjE3OTggMTguNzU1OSA0My4xNzk4IDE1LjA5OEM0My4xNzk4IDExLjQ0MDIgNDUuNzg5NCA4LjY4NDM5IDQ5LjYxNzkgOC42ODQzOUM1My40NDY0IDguNjg0MzkgNTUuNzM5IDExLjYxMDggNTUuNzM5IDE1LjEyMjRDNTUuNzM5IDE1LjQ4ODEgNTUuNjkwMiAxNS44NzgyIDU1LjY0MTQgMTYuMjE5NUg0NS45MzU2QzQ2LjM1MDEgMTguMTIyIDQ3Ljg4NjkgMTkuMDk3MiA0OS44MzczIDE5LjA5NzJaTTUzLjA4MDcgMTQuMDc0MUM1Mi43MTUgMTEuOTc2NSA1MS4xNzgyIDExLjA3NDUgNDkuNTkzNSAxMS4wNzQ1QzQ3LjYxNzkgMTEuMDc0NSA0Ni4yNzcgMTIuMjQ0NyA0NS45MTEyIDE0LjA3NDFINTMuMDgwN1oiIGZpbGw9IiMwNUNDNzkiLz4KPHBhdGggZD0iTTU3LjQ0NTYgMy44NDgxNEg2MC4wNzk1VjIxLjE5MzlINTcuNDQ1NlYzLjg0ODE0WiIgZmlsbD0iIzA1Q0M3OSIvPgo8cGF0aCBkPSJNNjEuOTQwNSA1LjQ4OTc2QzYxLjk0MDUgNC41NjMzIDYyLjY5NjMgMy44MDY3IDYzLjYyMjcgMy44MDY3QzY0LjU0OTIgMy44MDY3IDY1LjMwNSA0LjU2MjQ5IDY1LjMwNSA1LjQ4OTc2QzY1LjMwNSA2LjQxNzAyIDY0LjU0OTIgNy4xNzIgNjMuNjIyNyA3LjE3MkM2Mi42OTYzIDcuMTcyIDYxLjk0MDUgNi4zOTE4MyA2MS45NDA1IDUuNDg5NzZaTTYyLjMwNjIgOS4wMDEzNEg2NC45NDAxVjIxLjE5MzlINjIuMzA2MlY5LjAwMTM0WiIgZmlsbD0iIzA1Q0M3OSIvPgo8cGF0aCBkPSJNNzguOTE4MSA5LjAwMTM0TDc0LjE2MzIgMjEuMTkzOUg3MS4xMTQ4TDY2LjM1OTggOS4wMDEzNEg2OS4yMzc1TDcyLjY1MTYgMTguMjY4M0w3Ni4wNDEzIDkuMDAxMzRINzguOTE5SDc4LjkxODFaIiBmaWxsPSIjMDVDQzc5Ii8+CjxwYXRoIGQ9Ik04NS41NDYzIDE5LjA5NzJDODcuMDA5MiAxOS4wOTcyIDg4LjEwNzEgMTguNDM5IDg4LjY5MjIgMTcuNTg1Nkw5MC44NjI5IDE4Ljg1MzRDODkuNzQxNCAyMC41MTEzIDg3LjkxMiAyMS41MTE3IDg1LjUyMiAyMS41MTE3QzgxLjQ5ODQgMjEuNTExNyA3OC44ODg5IDE4Ljc1NTkgNzguODg4OSAxNS4wOThDNzguODg4OSAxMS40NDAyIDgxLjQ5ODQgOC42ODQzOSA4NS4zMjY5IDguNjg0MzlDODkuMTU1NCA4LjY4NDM5IDkxLjQ0OCAxMS42MTA4IDkxLjQ0OCAxNS4xMjI0QzkxLjQ0OCAxNS40ODgxIDkxLjM5OTIgMTUuODc4MiA5MS4zNTA1IDE2LjIxOTVIODEuNjQ0N0M4Mi4wNTkxIDE4LjEyMiA4My41OTU5IDE5LjA5NzIgODUuNTQ2MyAxOS4wOTcyWk04OC43ODk3IDE0LjA3NDFDODguNDI0IDExLjk3NjUgODYuODg3MyAxMS4wNzQ1IDg1LjMwMjUgMTEuMDc0NUM4My4zMjY5IDExLjA3NDUgODEuOTg2IDEyLjI0NDcgODEuNjIwMyAxNC4wNzQxSDg4Ljc4OTdaIiBmaWxsPSIjMDVDQzc5Ii8+CjxwYXRoIGQ9Ik05OS4yMjM3IDguNzgxOTJWMTEuNjM1MkM5Ny40OTI3IDExLjUxMzMgOTUuNDY4MyAxMi4zMTc5IDk1LjQ2ODMgMTUuMDQ5M1YyMS4xOTQ4SDkyLjgzNDRWOS4wMDIxNkg5NS40NjgzVjExLjA1MDlDOTYuMTk5NyA5LjM5MzA2IDk3LjY4NzggOC43ODI3MyA5OS4yMjM3IDguNzgyNzNWOC43ODE5MloiIGZpbGw9IiMwNUNDNzkiLz4KPHBhdGggZD0iTTEwNi4yMTQgMTkuMDk3MkMxMDcuNjc2IDE5LjA5NzIgMTA4Ljc3NCAxOC40MzkgMTA5LjM1OSAxNy41ODU2TDExMS41MyAxOC44NTM0QzExMC40MDkgMjAuNTExMyAxMDguNTc5IDIxLjUxMTcgMTA2LjE4OSAyMS41MTE3QzEwMi4xNjYgMjEuNTExNyA5OS41NTYxIDE4Ljc1NTkgOTkuNTU2MSAxNS4wOThDOTkuNTU2MSAxMS40NDAyIDEwMi4xNjYgOC42ODQzOSAxMDUuOTk0IDguNjg0MzlDMTA5LjgyMyA4LjY4NDM5IDExMi4xMTUgMTEuNjEwOCAxMTIuMTE1IDE1LjEyMjRDMTEyLjExNSAxNS40ODgxIDExMi4wNjYgMTUuODc4MiAxMTIuMDE4IDE2LjIxOTVIMTAyLjMxMkMxMDIuNzI2IDE4LjEyMiAxMDQuMjYzIDE5LjA5NzIgMTA2LjIxNCAxOS4wOTcyWk0xMDkuNDU3IDE0LjA3NDFDMTA5LjA5MSAxMS45NzY1IDEwNy41NTQgMTEuMDc0NSAxMDUuOTcgMTEuMDc0NUMxMDMuOTk0IDExLjA3NDUgMTAyLjY1MyAxMi4yNDQ3IDEwMi4yODggMTQuMDc0MUgxMDkuNDU3WiIgZmlsbD0iIzA1Q0M3OSIvPgo8cGF0aCBkPSJNMTEzLjE1MSAxNS4wOTcyQzExMy4xNTEgMTEuNDYzOCAxMTUuOTA3IDguNjgzNTkgMTE5LjU4OSA4LjY4MzU5QzEyMS45NzkgOC42ODM1OSAxMjQuMDUyIDkuOTI2OTkgMTI1LjAyOCAxMS44Mjk1TDEyMi43NiAxMy4xNDZDMTIyLjIyMyAxMi4wMDAxIDEyMS4wMjkgMTEuMjY4NyAxMTkuNTY1IDExLjI2ODdDMTE3LjQxOSAxMS4yNjg3IDExNS43ODUgMTIuOTAyMiAxMTUuNzg1IDE1LjA5NzJDMTE1Ljc4NSAxNy4yOTIzIDExNy40MTkgMTguOTI1OCAxMTkuNTY1IDE4LjkyNThDMTIxLjAyOCAxOC45MjU4IDEyMi4yMjMgMTguMTcgMTIyLjgwOCAxNy4wNDc3TDEyNS4wNzcgMTguMzM5OEMxMjQuMDUzIDIwLjI2NjcgMTIxLjk3OSAyMS41MTAxIDExOS41ODkgMjEuNTEwMUMxMTUuOTA3IDIxLjUxMDEgMTEzLjE1MSAxOC43MDU1IDExMy4xNTEgMTUuMDk2NFYxNS4wOTcyWiIgZmlsbD0iIzA1Q0M3OSIvPgo8cGF0aCBkPSJNMTMwLjM0NCAxMS41MzY5VjE3LjM4OThDMTMwLjM0NCAxOC45NTAxIDEzMS4zNjggMTguOTI1OCAxMzMuMzY4IDE4LjgyODJWMjEuMTkzOUMxMjkuMzIgMjEuNjgxNiAxMjcuNzExIDIwLjU2MDEgMTI3LjcxMSAxNy4zODk4VjExLjUzNjlIMTI1LjQ2N1Y5LjAwMDUzSDEyNy43MTFWNS4zNTg5MkgxMzAuMzQ0VjkuMDAwNTNIMTMzLjM2OFYxMS41MzY5SDEzMC4zNDRaIiBmaWxsPSIjMDVDQzc5Ii8+CjxwYXRoIGQ9Ik0zOS4wMzg0IDMuODQ4MTRWOS45MTMxNkMzNy45NzA2IDkuMTM2MjQgMzYuNjQ0MyA4LjY4MzU4IDM1LjIwMDEgOC42ODM1OEMzMS42Mzk4IDguNjgzNTggMjguNzYyMSAxMS40NjM3IDI4Ljc2MjEgMTUuMDk3MkMyOC43NjIxIDE4LjczMDcgMzEuNjM5OCAyMS41MTA5IDM1LjIwMDEgMjEuNTEwOUMzOC43NjA1IDIxLjUxMDkgNDEuNjM4MiAxOC43MDYzIDQxLjYzODIgMTUuMDk3MlYzLjg0ODE0SDM5LjAzOTJIMzkuMDM4NFpNMzUuMjAwMSAxOC45NTAxQzMzLjA1MzkgMTguOTUwMSAzMS4zOTYgMTcuMzE2NyAzMS4zOTYgMTUuMDk3MkMzMS4zOTYgMTIuODc3OCAzMy4wNTM5IDExLjI0NDMgMzUuMjAwMSAxMS4yNDQzQzM3LjM0NjQgMTEuMjQ0MyAzOS4wMDQzIDEyLjg3NzggMzkuMDA0MyAxNS4wOTcyQzM5LjAwNDMgMTcuMzE2NyAzNy4zNDU2IDE4Ljk1MDEgMzUuMjAwMSAxOC45NTAxWiIgZmlsbD0iIzA1Q0M3OSIvPgo8L3N2Zz4K" alt="Image 1">
 
             </div>
             <nav>
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                <a href="#Solutions">Solutions &#x2228;</a>
+                <a href="#Integrations">Integrations &#x2228;</a>
+                <a href="#Pricing">Pricing</a>
+                <a href="#Resources">Resources &#x2228;</a>
+
+                <button class="navbar-button">Get Started</button>
             </nav>
         </div>
     </header>
@@ -364,26 +481,44 @@
 
         <!-- XSS Vuln -->
         <h1>Sign Up to Our Email Newsletter</h1>
-        <form action="/signup" method="post">
+        <!-- <form action="/signup" method="post">
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email"><br><br>
             <input type="submit" value="Sign Up">
-        </form>
-        <hr>
-        <hr>
-
-        <!-- Unrestricted File Upload -->
-        <h1>Need a job? (Yes, of course you do)</h1>
-        <h2>Upload your resume below and we'll reach out.</h2>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <input type="submit" value="Upload">
+        </form> -->
+        <form action="/signup" method="post" class="signup-form">
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email" class="input-field"><br><br>
+            <input type="submit" value="Sign Up" class="submit-button">
         </form>
         
-        <hr>
-        <hr>
+       
+
+        <!-- Unrestricted File Upload -->
+
+        <div class="green" style="margin: 0.5em 0; font-family: GT Pressura, Arial, sans-serif; font-weight: 600; color: #038851; padding-top: 25px;">
+            Want to work with us? (Yes, of course you do)
+        </div>
+        
+        <h2>Please upload your resume below, and we'll be in touch.</h2>
+        <!-- <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form> -->
+        <form action="/upload" method="post" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="file" class="file-input">
+            <input type="submit" value="Upload" class="submit-button">
+        </form>
+        
+        
 
         <!-- Login -->
+
+
+        <div class="green" style="margin: 0.5em 0; font-family: GT Pressura, Arial, sans-serif; font-weight: 600; color: #038851; padding-top: 25px;">
+            Already have an account?
+        </div>
+        <h2>Please login... Legitimately, please.</h2>
         <div class="log-body">
             <div class="login-container">
                 <h2>Login</h2>
