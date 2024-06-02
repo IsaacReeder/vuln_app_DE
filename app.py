@@ -31,6 +31,8 @@ def home():
         return render_template('signup_success.html', email=email)
     return render_template('index.html')
 
+# XSS
+
 @app.route('/signup', methods=['GET', 'POST'])  # Add route decorator for signup page
 def signup():
     if request.method == 'POST':
@@ -38,7 +40,7 @@ def signup():
         return render_template('signup_success.html', email=email)
     return render_template('signup.html')
 
-# Insecure file upload
+# Unrestricted file upload
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -51,24 +53,6 @@ def upload_file():
             flash('File uploaded successfully!', 'success')
             return redirect(url_for('home'))  # Redirect to home page after upload
     return render_template('upload.html')
-
-# The above route allows unrestricted file upload. 
-
-# The following security measures to mitigate the vulnerability of unrestricted file upload in bullet point format:
-
-# ALLOWED_EXTENSIONS defines a set of allowed file extensions. E.G 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'
-# The allowed_file() function checks if the uploaded file extension is allowed.
-# secure_filename() can be used to sanitize the file name.
-# MAX_CONTENT_LENGTH limits the maximum file size.
-
-# - Limit File Types: Allow only specific file types to be uploaded.
-# - Validate File Size: Set a maximum file size limit for uploads.
-# - Sanitize File Names: Remove potentially dangerous characters from file names.
-# - Scan for Malicious Content: Implement file content scanning for malicious content detection.
-# - Store Uploaded Files Securely: Store files outside the web root directory with proper permissions.
-# - Use a Content Delivery Network (CDN): Serve uploaded files through a CDN for added security.
-# - Implement User Authentication and Authorization: Require authentication and restrict uploads to authorized users.
-# - Monitor and Log Upload Activities: Log file upload activities for monitoring and detecting suspicious behavior.
 
 # SQLI 
 
