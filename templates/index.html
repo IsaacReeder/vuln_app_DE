@@ -243,6 +243,64 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Login */
+
+        .log-body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            /* height: 10vh; */
+            margin-top:50px;
+            margin-bottom:50px;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .login-container h2 {
+            margin-top: 0;
+        }
+
+        .login-container .input-group {
+            margin-bottom: 15px;
+        }
+
+        .login-container .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .login-container .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .login-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -299,12 +357,12 @@
             <div class="image-box"><img src="//images.ctfassets.net/sv4wepqk8nm7/5CWwveIEUdA1O2YbE85Tag/ac0401beffef7b65ba778ced59cc7de5/Taco-bell-logo.svg" alt="Image 3"></div>
             <div class="image-box"><img src="//images.ctfassets.net/sv4wepqk8nm7/5F2jK2namNpll7FKUPERi4/ee9d6922eaa936a998142ada1e1353fb/Burger_King_logo-01.svg" alt="Image 4"></div>
             <div class="image-box"><img src="//images.ctfassets.net/sv4wepqk8nm7/5JE6Dg5VRic26xETFM3bMi/43516a0ac97e48e57771ef44b9e3b395/ben_Jerry_logo-01.svg" alt="Image 5"></div>
-            <!-- <div class="image-box"><img src="https://via.placeholder.com/300" alt="Image 6"></div> -->
         </div>
     </section>
 
     <section id="features" class="section">
 
+        <!-- XSS Vuln -->
         <h1>Sign Up to Our Email Newsletter</h1>
         <form action="/signup" method="post">
             <label for="email">Email:</label><br>
@@ -313,6 +371,8 @@
         </form>
         <hr>
         <hr>
+
+        <!-- Unrestricted File Upload -->
         <h1>Need a job? (Yes, of course you do)</h1>
         <h2>Upload your resume below and we'll reach out.</h2>
         <form action="/upload" method="post" enctype="multipart/form-data">
@@ -322,6 +382,28 @@
         
         <hr>
         <hr>
+
+        <!-- Login -->
+        <div class="log-body">
+            <div class="login-container">
+                <h2>Login</h2>
+                <form action="/login" method="GET">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <hr>
+        <hr>
+
 
         <h2>Features</h2>
         <p>Everything you need to manage your online orders efficiently.</p>
