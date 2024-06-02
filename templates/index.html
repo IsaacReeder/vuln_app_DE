@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,4 +11,328 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
+ -->
 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deliverect Clone</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 2em;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 1em;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        /* Toppest */
+
+        .topest-navbar {
+            height: 35px;
+            background-color: #1c1c1c;
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            color: #ffffff;  
+            padding: 0 20px;  
+        }
+
+        .navbar-text p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .arrow {
+            color: #e0e0e0;  
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 20px; /* 20px spacing arrows & text */
+        }
+
+        .left-container,
+        .right-container {
+            display: flex;
+            align-items: center;
+        }
+
+
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background: url('static/images/hero.jpg') no-repeat center center/cover;
+            color: #080000;
+            text-align: center;
+            margin-top: 60px; /* To account for the fixed header */
+            
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin: 0.5em 0;
+            font-family: GT Pressura,Arial,sans-serif;
+            line-height: 1;
+            font-weight: 600;
+        }
+
+        .hero h4 {
+            margin: 0.5em 0;
+            font-family: GT Pressura,Arial,sans-serif;
+            font-weight: 600;
+            color: #038851;
+        }
+
+        .hero h5 {
+            margin: 0.5em 0;
+            font-family: GT Pressura,Arial,sans-serif;
+            font-weight: 600;
+            color: #038851;
+        }
+
+        .hero p {
+            font-size: 1em;
+            margin: 0.5em 0;
+            color:#4f4f4f;
+            
+        }
+
+        .hero .cta {
+            padding: 1em 2em;
+            background-color: #038851;
+            color: #fff;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 1em;
+            border-radius: 25px;
+            font-family: GT Pressura,Arial,sans-serif;
+            font-weight: 600;
+        }
+
+        .section {
+            padding: 4em 2em;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            margin: 1em;
+            flex-basis: 30%;
+            text-align: left;
+        }
+
+        .feature h3 {
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .feature p {
+            font-size: 1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Images grid */
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            /* grid-template-columns: repeat(4, 1fr); */
+            grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+            gap: 1px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .text-boxy {
+            grid-column: span 1;
+            color: #4f4f4f;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .text-boxy h4 {
+            margin: 0;
+            font-size: 1em;
+            color: #4f4f4f;
+            /* white-space: pre-line; */
+        }
+
+        .image-box {
+            grid-column: span 1;
+            width: 10%;
+        }
+
+        .image-box img {
+            width: 70px;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="topest-navbar">
+            <div class="left-container">
+                <div class="arrow left-arrow">&lt;</div>
+            </div>
+            <div class="navbar-text">
+                <p>Little Caesars Partners with Deliverect for Global Delivery Integration</p>
+            </div>
+            <div class="right-container">
+                <div class="arrow right-arrow">&gt;</div>
+            </div>
+        </nav>
+        <div class="navbar">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM0IiBoZWlnaHQ9IjI1IiB2aWV3Qm94PSIwIDAgMTM0IDI1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMjAuODgxNiAzLjcxNzNWMTIuNjU5MkMyMC44ODE2IDE3LjA3NzcgMTcuMzAwMSAyMC42NTkyIDEyLjg4MTYgMjAuNjU5MkM4LjQ2MzA2IDIwLjY1OTIgNC44ODE1OSAxNy4wNzc3IDQuODgxNTkgMTIuNjU5MkM0Ljg4MTU5IDguMjQwNjYgOC40NjMwNiA0LjY1OTE5IDEyLjg4MTYgNC42NTkxOUgxMy43NzA3VjkuOTkyNzlIMTIuODgxNkMxMS40MDkgOS45OTI3OSAxMC4yMTUyIDExLjE4NjYgMTAuMjE1MiAxMi42NTkyQzEwLjIxNTIgMTQuMTMxOCAxMS40MDkgMTUuMzI1NiAxMi44ODE2IDE1LjMyNTZDMTQuMzU0MiAxNS4zMjU2IDE1LjU0OCAxNC4xMzE4IDE1LjU0OCAxMi42NTkyVjAuOTYwNjk0QzE0LjY4OTggMC43NjU2NTIgMTMuNzk4MyAwLjY2MDAwNCAxMi44ODE2IDAuNjYwMDA0QzYuMjU0MiAwLjY2MDAwNCAwLjg4MTU5MiA2LjAzMjYyIDAuODgxNTkyIDEyLjY2QzAuODgxNTkyIDE5LjI4NzQgNi4yNTQyIDI0LjY2IDEyLjg4MTYgMjQuNjZDMTkuNTA5IDI0LjY2IDI0Ljg4MTYgMTkuMjg3NCAyNC44ODE2IDEyLjY2QzI0Ljg4MTYgOS4xMDY5NyAyMy4zMzU5IDUuOTE1NTkgMjAuODgxNiAzLjcxODExVjMuNzE3M1oiIGZpbGw9IiMwNUNDNzkiLz4KPHBhdGggZD0iTTQ5LjgzNzMgMTkuMDk3MkM1MS4zMDAxIDE5LjA5NzIgNTIuMzk4IDE4LjQzOSA1Mi45ODMyIDE3LjU4NTZMNTUuMTUzOCAxOC44NTM0QzU0LjAzMjMgMjAuNTExMyA1Mi4yMDMgMjEuNTExNyA0OS44MTI5IDIxLjUxMTdDNDUuNzg5MyAyMS41MTE3IDQzLjE3OTggMTguNzU1OSA0My4xNzk4IDE1LjA5OEM0My4xNzk4IDExLjQ0MDIgNDUuNzg5NCA4LjY4NDM5IDQ5LjYxNzkgOC42ODQzOUM1My40NDY0IDguNjg0MzkgNTUuNzM5IDExLjYxMDggNTUuNzM5IDE1LjEyMjRDNTUuNzM5IDE1LjQ4ODEgNTUuNjkwMiAxNS44NzgyIDU1LjY0MTQgMTYuMjE5NUg0NS45MzU2QzQ2LjM1MDEgMTguMTIyIDQ3Ljg4NjkgMTkuMDk3MiA0OS44MzczIDE5LjA5NzJaTTUzLjA4MDcgMTQuMDc0MUM1Mi43MTUgMTEuOTc2NSA1MS4xNzgyIDExLjA3NDUgNDkuNTkzNSAxMS4wNzQ1QzQ3LjYxNzkgMTEuMDc0NSA0Ni4yNzcgMTIuMjQ0NyA0NS45MTEyIDE0LjA3NDFINTMuMDgwN1oiIGZpbGw9IiMwNUNDNzkiLz4KPHBhdGggZD0iTTU3LjQ0NTYgMy44NDgxNEg2MC4wNzk1VjIxLjE5MzlINTcuNDQ1NlYzLjg0ODE0WiIgZmlsbD0iIzA1Q0M3OSIvPgo8cGF0aCBkPSJNNjEuOTQwNSA1LjQ4OTc2QzYxLjk0MDUgNC41NjMzIDYyLjY5NjMgMy44MDY3IDYzLjYyMjcgMy44MDY3QzY0LjU0OTIgMy44MDY3IDY1LjMwNSA0LjU2MjQ5IDY1LjMwNSA1LjQ4OTc2QzY1LjMwNSA2LjQxNzAyIDY0LjU0OTIgNy4xNzIgNjMuNjIyNyA3LjE3MkM2Mi42OTYzIDcuMTcyIDYxLjk0MDUgNi4zOTE4MyA2MS45NDA1IDUuNDg5NzZaTTYyLjMwNjIgOS4wMDEzNEg2NC45NDAxVjIxLjE5MzlINjIuMzA2MlY5LjAwMTM0WiIgZmlsbD0iIzA1Q0M3OSIvPgo8cGF0aCBkPSJNNzguOTE4MSA5LjAwMTM0TDc0LjE2MzIgMjEuMTkzOUg3MS4xMTQ4TDY2LjM1OTggOS4wMDEzNEg2OS4yMzc1TDcyLjY1MTYgMTguMjY4M0w3Ni4wNDEzIDkuMDAxMzRINzguOTE5SDc4LjkxODFaIiBmaWxsPSIjMDVDQzc5Ii8+CjxwYXRoIGQ9Ik04NS41NDYzIDE5LjA5NzJDODcuMDA5MiAxOS4wOTcyIDg4LjEwNzEgMTguNDM5IDg4LjY5MjIgMTcuNTg1Nkw5MC44NjI5IDE4Ljg1MzRDODkuNzQxNCAyMC41MTEzIDg3LjkxMiAyMS41MTE3IDg1LjUyMiAyMS41MTE3QzgxLjQ5ODQgMjEuNTExNyA3OC44ODg5IDE4Ljc1NTkgNzguODg4OSAxNS4wOThDNzguODg4OSAxMS40NDAyIDgxLjQ5ODQgOC42ODQzOSA4NS4zMjY5IDguNjg0MzlDODkuMTU1NCA4LjY4NDM5IDkxLjQ0OCAxMS42MTA4IDkxLjQ0OCAxNS4xMjI0QzkxLjQ0OCAxNS40ODgxIDkxLjM5OTIgMTUuODc4MiA5MS4zNTA1IDE2LjIxOTVIODEuNjQ0N0M4Mi4wNTkxIDE4LjEyMiA4My41OTU5IDE5LjA5NzIgODUuNTQ2MyAxOS4wOTcyWk04OC43ODk3IDE0LjA3NDFDODguNDI0IDExLjk3NjUgODYuODg3MyAxMS4wNzQ1IDg1LjMwMjUgMTEuMDc0NUM4My4zMjY5IDExLjA3NDUgODEuOTg2IDEyLjI0NDcgODEuNjIwMyAxNC4wNzQxSDg4Ljc4OTdaIiBmaWxsPSIjMDVDQzc5Ii8+CjxwYXRoIGQ9Ik05OS4yMjM3IDguNzgxOTJWMTEuNjM1MkM5Ny40OTI3IDExLjUxMzMgOTUuNDY4MyAxMi4zMTc5IDk1LjQ2ODMgMTUuMDQ5M1YyMS4xOTQ4SDkyLjgzNDRWOS4wMDIxNkg5NS40NjgzVjExLjA1MDlDOTYuMTk5NyA5LjM5MzA2IDk3LjY4NzggOC43ODI3MyA5OS4yMjM3IDguNzgyNzNWOC43ODE5MloiIGZpbGw9IiMwNUNDNzkiLz4KPHBhdGggZD0iTTEwNi4yMTQgMTkuMDk3MkMxMDcuNjc2IDE5LjA5NzIgMTA4Ljc3NCAxOC40MzkgMTA5LjM1OSAxNy41ODU2TDExMS41MyAxOC44NTM0QzExMC40MDkgMjAuNTExMyAxMDguNTc5IDIxLjUxMTcgMTA2LjE4OSAyMS41MTE3QzEwMi4xNjYgMjEuNTExNyA5OS41NTYxIDE4Ljc1NTkgOTkuNTU2MSAxNS4wOThDOTkuNTU2MSAxMS40NDAyIDEwMi4xNjYgOC42ODQzOSAxMDUuOTk0IDguNjg0MzlDMTA5LjgyMyA4LjY4NDM5IDExMi4xMTUgMTEuNjEwOCAxMTIuMTE1IDE1LjEyMjRDMTEyLjExNSAxNS40ODgxIDExMi4wNjYgMTUuODc4MiAxMTIuMDE4IDE2LjIxOTVIMTAyLjMxMkMxMDIuNzI2IDE4LjEyMiAxMDQuMjYzIDE5LjA5NzIgMTA2LjIxNCAxOS4wOTcyWk0xMDkuNDU3IDE0LjA3NDFDMTA5LjA5MSAxMS45NzY1IDEwNy41NTQgMTEuMDc0NSAxMDUuOTcgMTEuMDc0NUMxMDMuOTk0IDExLjA3NDUgMTAyLjY1MyAxMi4yNDQ3IDEwMi4yODggMTQuMDc0MUgxMDkuNDU3WiIgZmlsbD0iIzA1Q0M3OSIvPgo8cGF0aCBkPSJNMTEzLjE1MSAxNS4wOTcyQzExMy4xNTEgMTEuNDYzOCAxMTUuOTA3IDguNjgzNTkgMTE5LjU4OSA4LjY4MzU5QzEyMS45NzkgOC42ODM1OSAxMjQuMDUyIDkuOTI2OTkgMTI1LjAyOCAxMS44Mjk1TDEyMi43NiAxMy4xNDZDMTIyLjIyMyAxMi4wMDAxIDEyMS4wMjkgMTEuMjY4NyAxMTkuNTY1IDExLjI2ODdDMTE3LjQxOSAxMS4yNjg3IDExNS43ODUgMTIuOTAyMiAxMTUuNzg1IDE1LjA5NzJDMTE1Ljc4NSAxNy4yOTIzIDExNy40MTkgMTguOTI1OCAxMTkuNTY1IDE4LjkyNThDMTIxLjAyOCAxOC45MjU4IDEyMi4yMjMgMTguMTcgMTIyLjgwOCAxNy4wNDc3TDEyNS4wNzcgMTguMzM5OEMxMjQuMDUzIDIwLjI2NjcgMTIxLjk3OSAyMS41MTAxIDExOS41ODkgMjEuNTEwMUMxMTUuOTA3IDIxLjUxMDEgMTEzLjE1MSAxOC43MDU1IDExMy4xNTEgMTUuMDk2NFYxNS4wOTcyWiIgZmlsbD0iIzA1Q0M3OSIvPgo8cGF0aCBkPSJNMTMwLjM0NCAxMS41MzY5VjE3LjM4OThDMTMwLjM0NCAxOC45NTAxIDEzMS4zNjggMTguOTI1OCAxMzMuMzY4IDE4LjgyODJWMjEuMTkzOUMxMjkuMzIgMjEuNjgxNiAxMjcuNzExIDIwLjU2MDEgMTI3LjcxMSAxNy4zODk4VjExLjUzNjlIMTI1LjQ2N1Y5LjAwMDUzSDEyNy43MTFWNS4zNTg5MkgxMzAuMzQ0VjkuMDAwNTNIMTMzLjM2OFYxMS41MzY5SDEzMC4zNDRaIiBmaWxsPSIjMDVDQzc5Ii8+CjxwYXRoIGQ9Ik0zOS4wMzg0IDMuODQ4MTRWOS45MTMxNkMzNy45NzA2IDkuMTM2MjQgMzYuNjQ0MyA4LjY4MzU4IDM1LjIwMDEgOC42ODM1OEMzMS42Mzk4IDguNjgzNTggMjguNzYyMSAxMS40NjM3IDI4Ljc2MjEgMTUuMDk3MkMyOC43NjIxIDE4LjczMDcgMzEuNjM5OCAyMS41MTA5IDM1LjIwMDEgMjEuNTEwOUMzOC43NjA1IDIxLjUxMDkgNDEuNjM4MiAxOC43MDYzIDQxLjYzODIgMTUuMDk3MlYzLjg0ODE0SDM5LjAzOTJIMzkuMDM4NFpNMzUuMjAwMSAxOC45NTAxQzMzLjA1MzkgMTguOTUwMSAzMS4zOTYgMTcuMzE2NyAzMS4zOTYgMTUuMDk3MkMzMS4zOTYgMTIuODc3OCAzMy4wNTM5IDExLjI0NDMgMzUuMjAwMSAxMS4yNDQzQzM3LjM0NjQgMTEuMjQ0MyAzOS4wMDQzIDEyLjg3NzggMzkuMDA0MyAxNS4wOTcyQzM5LjAwNDMgMTcuMzE2NyAzNy4zNDU2IDE4Ljk1MDEgMzUuMjAwMSAxOC45NTAxWiIgZmlsbD0iIzA1Q0M3OSIvPgo8L3N2Zz4K" alt="Image 1">
+
+            </div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h4>HELPING THE FOOD SERVICE COMMUNITY THRIVE</h4>
+        <h1>THE COMPLETE SOLUTION FOR <br/> DIGITAL FOOD ORDERING</h1>
+        <p>One platform to manage operations and drive revenue:</p>
+        <p>Robust APIs • Direct-to-consumer sales channels • Automation tools • Third-party delivery management</p>
+        
+
+        <button class="cta">Get Started</button>
+        <h5>One location? Get free <br/>access for 14 days</h5>
+
+        <div class="container">
+            <div class="text-boxy">
+                <h4>48,000+ FOOD BUSINESSES <br/>WORLDWIDE TRUST US</h4>
+            </div>
+            <div class="image-box"><img src="//images.ctfassets.net/sv4wepqk8nm7/5qvStqiLTjOYe9uB0eeBz8/2fb781b9135e5944f1088095121a50be/Little_Caesars-Logo.svg" alt="Image 1"></div>
+            <div class="image-box"><img src="//images.ctfassets.net/sv4wepqk8nm7/5rAtC28EvJQSkZ3lgqKNJq/60f2cf25c4b84349a156260fb210fd54/KCF_Logo_final_smol.svg" alt="Image 2"></div>
+            <div class="image-box"><img src="//images.ctfassets.net/sv4wepqk8nm7/5CWwveIEUdA1O2YbE85Tag/ac0401beffef7b65ba778ced59cc7de5/Taco-bell-logo.svg" alt="Image 3"></div>
+            <div class="image-box"><img src="//images.ctfassets.net/sv4wepqk8nm7/5F2jK2namNpll7FKUPERi4/ee9d6922eaa936a998142ada1e1353fb/Burger_King_logo-01.svg" alt="Image 4"></div>
+            <div class="image-box"><img src="//images.ctfassets.net/sv4wepqk8nm7/5JE6Dg5VRic26xETFM3bMi/43516a0ac97e48e57771ef44b9e3b395/ben_Jerry_logo-01.svg" alt="Image 5"></div>
+            <!-- <div class="image-box"><img src="https://via.placeholder.com/300" alt="Image 6"></div> -->
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        
+        <h1>Sign Up to Our Email Newsletter</h1>
+        <form action="/signup" method="post">
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br><br>
+            <input type="submit" value="Sign Up">
+        </form>
+
+        <h2>Features</h2>
+        <p>Everything you need to manage your online orders efficiently.</p>
+        <div class="features">
+            <div class="feature">
+                <h3>Order Management</h3>
+                <p>Consolidate all your online orders in one place and manage them with ease.</p>
+            </div>
+            <div class="feature">
+                <h3>Integration</h3>
+                <p>Integrate seamlessly with your POS system and streamline operations.</p>
+            </div>
+            <div class="feature">
+                <h3>Analytics</h3>
+                <p>Get valuable insights into your sales and operations with our analytics tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>We help restaurants streamline their online food delivery operations.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us for more information.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Deliverect Clone. All rights reserved.</p>
+    </footer>
+</body>
+</html>
