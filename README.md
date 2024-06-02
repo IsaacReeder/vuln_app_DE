@@ -27,36 +27,45 @@
     |     ||     T|     | j  l  \   / |     T|  .  Y|     T\     | |  |  
     l_____jl_____jl_____j|____j  \_/  l_____jl__j\_jl_____j \____j l__j  
 
-# Start the app
+### Start the app
 cd my_flask_app
 
-# Create virtual environment
+### Create virtual environment
 python3 -m venv venv
 
-# Activate virtual environment
+### Activate virtual environment
 source venv/bin/activate
 
-# Install Flask
+### Install Flask
 pip install Flask
 
-# Run Flask app
+### Run Flask app
 python app.py
 
-# Set up SQL, Enter Shell (MacOS)
+### Set up SQL, Enter Shell (MacOS)
 sqlite3 mydatabase.db
 
-# Create a Table
+### Create a Table
 CREATE TABLE users (
     id INTEGER PRIMARY KEY,
     username TEXT NOT NULL,
     password TEXT NOT NULL
 );
 
-# Insert Data
+### Insert Data
 INSERT INTO users (username, password) VALUES
     ('admin', 'admin123'),
     ('user', 'password123');
 
-# Exit SQLite Shell
+### Exit SQLite Shell
 .exit
 
+# Vulnerabilities and their exploitation
+
+### XSS
+
+### Unrestricted File Upload
+
+### SQL Injection Auth Bypass
+' OR 1=1 --
+When successful, you'll notice the welcome messge "Welcome, admin!" at the top of the screen.
