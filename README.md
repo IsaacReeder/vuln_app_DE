@@ -41,3 +41,22 @@ pip install Flask
 
 # Run Flask app
 python app.py
+
+# Set up SQL, Enter Shell (MacOS)
+sqlite3 mydatabase.db
+
+# Create a Table
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);
+
+# Insert Data
+INSERT INTO users (username, password) VALUES
+    ('admin', 'admin123'),
+    ('user', 'password123');
+
+# Exit SQLite Shell
+.exit
+
